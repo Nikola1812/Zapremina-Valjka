@@ -1,0 +1,24 @@
+import React, { useState } from 'react';
+
+function CylinderVolumeCalculator() {
+  const [radius, setRadius] = useState('');
+  const [height, setHeight] = useState('');
+  const [volume, setVolume] = useState('');
+
+  const handleCalculate = () => {
+    const calculatedVolume = Math.pow(radius, 2) * Math.PI * height;
+    setVolume(calculatedVolume);
+  };
+
+  return (
+    <div>
+      <h1>Cylinder Volume Calculator</h1>
+      <p>Radius: <input type="text" value={radius} onChange={(e) => setRadius(e.target.value)} /></p>
+      <p>Height: <input type="text" value={height} onChange={(e) => setHeight(e.target.value)} /></p>
+      <button onClick={handleCalculate}>Calculate</button>
+      <p>Volume: {volume}</p>
+    </div>
+  );
+}
+
+export default CylinderVolumeCalculator;
